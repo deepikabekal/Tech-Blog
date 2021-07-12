@@ -1,0 +1,129 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+ .nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 400px;
+  }
+  
+  .nav-links a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  h1 {
+    color: black;
+    text-align: center;
+  }
+  
+  /*Sign-up and Login form containers*/
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    height: 350px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .bg-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+  }
+  
+  
+  .signup{
+    height: 400px;
+  }
+  
+  form{
+    margin: 20px;
+    font-size: 18px;
+    margin-bottom:10px;
+    margin-top: 10px;
+  }
+  
+  form h1{
+    position: relative;
+    text-align:center;
+    font-weight:bold;
+    font-size:30px;
+    margin-bottom: 30px;
+  }
+  
+  .login-email{
+    margin-bottom:10px;
+  }
+  
+  .login-password{
+    margin-bottom:10px;
+    margin-top:20px;
+  }
+  
+  form button{
+    margin: 10px 0;
+  }
+  
+  #signup-header{
+    font-weight:bold;
+    color: black;
+  }
+  
+  .signup-name{
+    margin-bottom: 20px;
+  }
+  
+  .signup-email{
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .signup-password{
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .btn:hover{
+    background-color: green;
+  }
+  
+  #form-content {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  #title-div, #content-div {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+  }
+
+  #title-div label, #content-div label {
+    font-size: x-large;
+    padding : 20px;
+  }

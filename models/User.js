@@ -17,15 +17,17 @@ User.init(
     {
         //table column defination
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: false,
+            defaultValue: DataTypes.UUIDV4,
         },
         // define a username column
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true,
         },
         // define an email column
         email: {
@@ -63,7 +65,8 @@ User.init(
             timestamps: false,
             freezeTableName: true,
             underscored: true,
-            modelName: 'user'
+            modelName: 'User',
+            tableName: "users"
     }
 );
 

@@ -3,8 +3,7 @@ const sequelize = require("../config/connection");
 const { Post } = require("../models");
 
 router.get("/", (req, res) => {
-  Post.findAll({})
-  .then((dbPostData) => {
+  Post.findAll({}).then((dbPostData) => {
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     res.render("homepage", { posts, loggedIn: req.session.loggedIn });
   });
@@ -19,8 +18,7 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
-  Post.findAll({})
-  .then((dbPostData) => {
+  Post.findAll({}).then((dbPostData) => {
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     res.render("dashboard", { posts, loggedIn: req.session.loggedIn });
   });
