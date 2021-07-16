@@ -3,12 +3,6 @@ const sequelize = require("../config/connection");
 
 
 
-
-
-
-
-
-
 class Post extends Model {
 }
 
@@ -18,6 +12,7 @@ Post.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      onDelete: 'CASCADE',
       autoIncrement: true
     },
 
@@ -34,6 +29,14 @@ Post.init(
     created_date:{
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+          model: 'user',
+          key: 'id'
+      }
     }
   },
   {
