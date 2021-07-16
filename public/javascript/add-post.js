@@ -1,7 +1,7 @@
-async function newPostHandler(event) {
-    event.preventDefault();
-  
-    const title = document.querySelector("#post-title").value.trim();
+async function newFormHandler(event) {
+  event.preventDefault();
+
+  const title = document.querySelector("#post-title").value.trim();
     const content = document.querySelector("#post-content").value.trim();
 
     if (title && content) {
@@ -25,4 +25,4 @@ async function newPostHandler(event) {
     }
 }
 
-document.querySelector(".post-form").addEventListener("submit", newPostHandler);
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
