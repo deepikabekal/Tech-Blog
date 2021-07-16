@@ -45,8 +45,7 @@ Post.init(
     createdAt: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "Post",
-    tableName: "posts",
+    modelName: "post",
   }
 );
 
