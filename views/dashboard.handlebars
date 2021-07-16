@@ -6,7 +6,9 @@
         <div class="title">
           <h3>{{post.title}}</h3>
           <p>{{post.content}}</p>
-          <span>({{post.createdAt}})</span>
+          <div class="meta created-data">
+          {{user.username}} on {{format_date created_at}}
+        </div>
         </div>
         <div class="meta">
           <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>

@@ -313,6 +313,16 @@ main {
   margin-bottom: 5%;
 }
 
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.edit-input {
+  margin-bottom: 10px;
+}
+
 footer {
   border-top: 1px solid #ccc;
   display: flex;
