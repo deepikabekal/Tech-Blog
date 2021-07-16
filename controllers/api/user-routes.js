@@ -4,16 +4,29 @@ const withAuth = require( '../../utils/auth' );
 
 
 // GET /api/users
-router.get('/', (req, res) => {
-    User.findAll({
-      attributes:{exclude:['password']}
-    })
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+router.get('/', ( req, res ) => {
+  User.findAll( {
+      attributes: { exclude: [ 'password' ] },
+      include: [ {
+          model: Post,
+          attributes: ['id', 'title', 'content', 'created_at', 'updated_at'],
+          },
+          {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'created_at', 'updated_at'],
+          include: {
+              model: Post,
+              attributes: ['title']
+          }
+          }
+      ]
+  } )
+  .then( dbUserData => res.json( dbUserData ) )
+  .catch( err => {
+      console.log( err );
+      res.status( 500 ).json( err );
+  } );
+} );
 
 //GET /api/users/:id
 router.get('/:id', (req, res) => {
