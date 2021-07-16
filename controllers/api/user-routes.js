@@ -4,10 +4,10 @@ const withAuth = require( '../../utils/auth' );
 
 
 // GET /api/users
-router.get('/', ( req, res ) => {
-  User.findAll( {
-      attributes: { exclude: [ 'password' ] },
-      include: [ {
+router.get('/', (req, res) => {
+  User.findAll({
+      attributes: {exclude: ['password']},
+      include: [{
           model: Post,
           attributes: ['id', 'title', 'content', 'created_at', 'updated_at'],
           },
@@ -18,35 +18,46 @@ router.get('/', ( req, res ) => {
               model: Post,
               attributes: ['title']
           }
-          }
-      ]
-  } )
-  .then( dbUserData => res.json( dbUserData ) )
-  .catch( err => {
-      console.log( err );
-      res.status( 500 ).json( err );
-  } );
-} );
+      }]
+  })
+  .then(dbUserData => res.json(dbUserData))
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  });
+});
 
 //GET /api/users/:id
 router.get('/:id', (req, res) => {
-    User.findOne({
-      attributes: { exclude: ['password'] },
+  User.findOne({
+      attributes: {exclude:['password']},
+      include: [{
+          model: Post,
+          attributes: ['id', 'title', 'content', 'created_at', 'updated_at'],
+          },
+          {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'created_at', 'updated_at'],
+          include: {
+              model: Post,
+              attributes: ['title']
+          }
+        }],
       where: {
-        id: req.params.id
-      }
-    })
-      .then(dbUserData => {
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
+      id: req.params.id
+    }
+  })
+  .then(dbUserData => {
+      if(!dbUserData) {
+          res.status(404).json({ message: 'No user found with this id'});
           return;
-        }
-        res.json(dbUserData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+      }
+      res.json(dbUserData);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  })
 });
 
 //POST /api/users/
