@@ -8,6 +8,6 @@ const postdata = [
 ];
 
 const seedPosts = () => {
-    Post.bulkCreate(postdata);
+    return Post.bulkCreate(postdata);
 }
 module.exports = seedPosts;

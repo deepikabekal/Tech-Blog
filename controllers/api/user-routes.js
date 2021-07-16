@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
 
 //POST /api/users/
 router.post('/', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    
     User.create({
       username: req.body.username,
       email: req.body.email,
@@ -60,6 +60,7 @@ router.post('/', (req, res) => {
 // The login route to check user's identity found at http://localhost:3002/api/users/login
 router.post("/login", (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    console.log(req.body);
     User.findOne({
       where: {
         email: req.body.email,
