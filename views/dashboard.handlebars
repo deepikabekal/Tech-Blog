@@ -1,16 +1,22 @@
-<div>
-  {{#each posts as |post|}}
-    <div class="card">
-      <div class="card-header">
-        <p>{{post.title}}</p>
-        <p class="created_date"></p>
-      </div>
-      <div class="card-content">
-        <p>{{post.content}}</p>
-      </div>
-    </div>
-  {{/each}}
-  <button>
-    <a href="/dashboard/new">New Post</a>
-  </button>
-</div>
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+    {{#each posts as |post|}}
+      <article class="post">
+        <div class="title">
+          <h3>{{post.title}}</h3>
+          <p>{{post.content}}</p>
+          <span>({{post.createdAt}})</span>
+        </div>
+        <div class="meta">
+          <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+        <span> <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a> </span> 
+      </article>
+    {{/each}}
+</section>
+{{else}}
+<p>No posts to display</p>
+{{/if}}
+    <a class="new-anchor" href="/dashboard/new"><button class="new-post-btn">New Post</button></a>
+

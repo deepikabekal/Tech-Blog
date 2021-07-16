@@ -1,12 +1,17 @@
-<div>
-  <ul>
-    {{#each posts as |post|}}
-      <a href="/posts/{{post.id}}">
-        <li>
-          <p>{{post.title}}</p>
-          <p class="created_date">{{post.createdAt}}</p>
-        </li>
-      </a>
-    {{/each}}
-  </ul>
+<div class="post-list">
+  {{#each posts as |post|}}
+    <article class="post">
+      <div class="title">
+        <h3>{{post.title}}</h3>
+        <p>{{post.content}}</p>
+        <div class="meta created-data">
+          {{user.username}} on {{format_date created_at}}
+        </div>
+      </div>
+      <div class="meta">
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+      </div>
+    </article>
+  {{/each}}
 </div>
+
