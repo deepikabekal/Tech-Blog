@@ -16,7 +16,7 @@ A CMS-style blog site where developers can publish their blog posts and comment 
 https://tech-blog-21.herokuapp.com/
 
 ## Screenshot
-<img src="public/images/screenshot.png" width=650 height = 500>
+<img src="public/images/screeshot.png" width=650 height = 500>
 
 ## Technologies Used
 ### Front-end
